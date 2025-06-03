@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DishCraft - AI Recipe Magic</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+    }
+    .bg-hero {
+      background-image: url('https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=1470&q=80');
+      background-size: cover;
+      background-position: center;
+    }
+    .font-pacifico {
+      font-family: 'Pacifico', cursive;
+    }
+  </style>
+</head>
+<body class="text-gray-900">
+
+  <!-- Hero Section -->
+  <section class="bg-hero text-white min-h-screen flex flex-col justify-center items-center bg-opacity-80 relative">
+    <div class="bg-black bg-opacity-60 p-10 rounded-3xl text-center w-full max-w-3xl shadow-2xl">
+      <h1 class="text-6xl font-pacifico mb-4 animate-pulse">🍴 DishCraft</h1>
+      <p class="text-xl italic mb-6">“Discover dishes from your kitchen ingredients!”</p>
+      <form action="/generate" method="POST" class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <input name="ingredients" type="text" placeholder="e.g., tomato, cheese, garlic"
+               class="w-full sm:w-2/3 p-4 text-black rounded-xl border" required>
+        <button type="submit"
+                class="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-xl text-lg transform transition hover:scale-105">
+          🍳 Generate
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- About Us -->
+  <section class="py-16 px-6 bg-white text-center">
+    <h2 class="text-4xl font-bold mb-6">✨ About DishCraft</h2>
+    <p class="max-w-3xl mx-auto text-lg text-gray-600">
+      DishCraft is your smart AI kitchen partner that turns random ingredients into delicious recipes.
+      Whether you're a home cook or food enthusiast, DishCraft helps you get inspired with minimal effort.
+    </p>
+  </section>
+
+  <!-- How It Works -->
+  <section class="py-16 px-6 bg-gray-100">
+    <h2 class="text-4xl font-bold text-center mb-12">🔍 How It Works</h2>
+    <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto text-center">
+      <div class="bg-white p-6 rounded-2xl shadow-lg hover:scale-105 transition">
+        <img src="https://cdn-icons-png.flaticon.com/512/1995/1995574.png"
+             class="h-24 mx-auto mb-4 animate-bounce" alt="Input">
+        <h3 class="text-2xl font-semibold">Enter Ingredients</h3>
+        <p class="text-gray-600 mt-2">List the items you have in your kitchen.</p>
+      </div>
+      <div class="bg-white p-6 rounded-2xl shadow-lg hover:scale-105 transition">
+        <img src="https://cdn-icons-png.flaticon.com/512/4298/4298672.png"
+             class="h-24 mx-auto mb-4 animate-pulse" alt="AI">
+        <h3 class="text-2xl font-semibold">AI Matches Recipes</h3>
+        <p class="text-gray-600 mt-2">We find the best recipe that fits your ingredients.</p>
+      </div>
+      <div class="bg-white p-6 rounded-2xl shadow-lg hover:scale-105 transition">
+        <img src="https://cdn-icons-png.flaticon.com/512/2935/2935335.png"
+             class="h-24 mx-auto mb-4 animate-spin-slow" alt="Cook">
+        <h3 class="text-2xl font-semibold">Cook & Enjoy</h3>
+        <p class="text-gray-600 mt-2">Follow steps and create something amazing!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trending Recipes -->
+  <section class="bg-white py-20 px-6">
+    <h2 class="text-4xl font-bold text-center mb-10">🔥 Trending Recipes</h2>
+    <div class="flex flex-wrap justify-center gap-10 max-w-6xl mx-auto">
+
+      <!-- Ramen -->
+      <div class="w-72 bg-white rounded-2xl shadow-md hover:shadow-xl hover:scale-105 transition transform duration-300">
+        <img src="{{ url_for('static', filename='images/istockphoto-1816960129-1024x1024.jpg') }}"
+             class="rounded-t-2xl h-48 w-full object-cover" alt="Ramen">
+        <div class="p-4">
+          <h3 class="text-xl font-semibold">Spicy Ramen Bowl</h3>
+          <p class="text-gray-600 text-sm mt-1">Sizzling noodles with a spicy twist.</p>
+        </div>
+      </div>
+
+      <!-- Pizza -->
+      <div class="w-72 bg-white rounded-2xl shadow-md hover:shadow-xl hover:scale-105 transition transform duration-300">
+        <img src="{{ url_for('static', filename='images/istockphoto-1829241109-1024x1024.jpg') }}"
+             class="rounded-t-2xl h-48 w-full object-cover" alt="Pizza">
+        <div class="p-4">
+          <h3 class="text-xl font-semibold">Cheesy Pizza Melt</h3>
+          <p class="text-gray-600 text-sm mt-1">Melting cheese & crispy goodness.</p>
+        </div>
+      </div>
+
+      <!-- Smoothie -->
+      <div class="w-72 bg-white rounded-2xl shadow-md hover:shadow-xl hover:scale-105 transition transform duration-300">
+        <img src="{{ url_for('static', filename='images/vegetables-6348_512.gif') }}"
+             class="rounded-t-2xl h-48 w-full object-cover" alt="Smoothie">
+        <div class="p-4">
+          <h3 class="text-xl font-semibold">Mango Smoothie</h3>
+          <p class="text-gray-600 text-sm mt-1">Tropical chill in every sip.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-8 text-center">
+    <p>&copy; 2025 DishCraft.</p>
+  </footer>
+
+  <!-- Custom animation for slow spin -->
+  <style>
+    @keyframes spin-slow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .animate-spin-slow {
+      animation: spin-slow 5s linear infinite;
+    }
+  </style>
+
+</body>
+</html>

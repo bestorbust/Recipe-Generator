@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Recipe Result - DishCraft</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      background-image: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1470&q=80');
+      background-size: cover;
+      background-position: center;
+      font-family: 'Open Sans', sans-serif;
+    }
+  </style>
+</head>
+<body class="min-h-screen text-white">
+  <div class="bg-black bg-opacity-70 min-h-screen flex flex-col items-center justify-center py-12 px-4">
+    <div class="bg-white bg-opacity-90 text-gray-900 rounded-3xl shadow-2xl p-10 w-full max-w-2xl">
+      <h2 class="text-4xl font-bold text-center mb-6">🍽️ {{ recipe_name }}</h2>
+      <p class="mb-6 text-lg text-center">
+        <span class="font-semibold">Ingredients you entered:</span> {{ ingredients }}
+      </p>
+      <h3 class="text-2xl font-semibold mb-4">📝 Recipe:</h3>
+      <div class="whitespace-pre-line text-lg leading-relaxed">
+        {{ instructions[0] }}
+      </div>
+      <div class="text-center mt-8">
+        <a href="/" class="bg-red-500 text-white px-5 py-3 rounded-xl hover:bg-red-600 text-lg">🔁 Try Another</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
